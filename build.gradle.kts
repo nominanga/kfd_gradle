@@ -1,6 +1,7 @@
 plugins {
-    application
     kotlin("jvm") version "2.1.0-RC"
+    id("code-analysis-plugin")
+    application
 }
 
 group = "org.example"
@@ -13,9 +14,17 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation(kotlin("reflect"))
+}
 
+tasks.named("compileKotlin") {
+    dependsOn("generateProjectStatistics")
 }
 
 application {
     mainClass.set("MainKt")
+}
+
+
+kotlin {
+    jvmToolchain(23)
 }

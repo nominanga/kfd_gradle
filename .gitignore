@@ -46,3 +46,6 @@ bin/
 
 /buildSrc/.gradle/
 /buildSrc/build/
+
+report.json
+.idea/
